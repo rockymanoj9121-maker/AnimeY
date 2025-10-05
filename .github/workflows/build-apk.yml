@@ -19,6 +19,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        # Ensure no cached JVM interferes
+        cache: 'gradle'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
@@ -30,7 +32,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: animey-extension-apk
-        path: src/animeY/build/outputs/apk/release/*.apk
+        path: src/en/animey/build/outputs/apk/release/*.apk
         retention-days: 30
 
 
