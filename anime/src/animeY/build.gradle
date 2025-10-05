@@ -1,0 +1,11 @@
+ext {
+    extName = 'AnimeY'
+    pkgNameSuffix = 'en.animey'
+    extClass = '.AnimeY'
+    extVersionCode = 1
+    libVersion = '13'
+}
+
+dependencies {
+    implementation 'Aniyomi:core:1.0'
+}
