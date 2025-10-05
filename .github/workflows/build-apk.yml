@@ -11,24 +11,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout repo
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
+      # Step 2: Install JDK 17
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+      # Step 3: Install Gradle
+      - name: Install Gradle
+        run: sudo apt-get update && sudo apt-get install gradle -y
 
+      # Step 4: Build APK
       - name: Build APK
-        run: ./gradlew :anime:en:animey:assembleRelease
+        run: gradle :anime:en:animey:assembleRelease
 
+      # Step 5: Upload APK
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: animey-apk
-          path: anime/src/animeY/build/outputs/apk/release/animey-release.apk
+          path: anime/src/animey/build/outputs/apk/release/*.apk
+
 
