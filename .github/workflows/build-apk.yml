@@ -30,4 +30,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: animey-apk
-          path: anime/src/animey/build/outputs/apk/release/anime-en-animey-v1.0.apk
+          path: anime/src/animeY/build/outputs/apk/release/animey-release.apk
+
